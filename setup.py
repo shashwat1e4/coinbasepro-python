@@ -21,10 +21,10 @@ with open("README.md", "r") as fh:
 setup(
     name='cbpro',
     version='1.1.4',
-    author='Daniel Paquin',
-    author_email='dpaq34@gmail.com',
+    author='Daniel Paquin', # Forked by Shashwat Saxena
+    author_email='dpaq34@gmail.com', # Forker email: shashwat1e4@gmail.com
     license='MIT',
-    url='https://github.com/danpaquin/coinbasepro-python',
+    url='https://github.com/shashwat1e4/coinbasepro-python',
     packages=find_packages(),
     install_requires=install_requires,
     tests_require=tests_require,
@@ -34,7 +34,7 @@ setup(
     description='The unofficial Python client for the Coinbase Pro API',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    download_url='https://github.com/danpaquin/coinbasepro-python/archive/master.zip',
+    download_url='https://github.com/shashwat1e4/coinbasepro-python/archive/master.zip',
     keywords=['gdax', 'gdax-api', 'orderbook', 'trade', 'bitcoin', 'ethereum', 'BTC', 'ETH', 'client', 'api', 'wrapper',
               'exchange', 'crypto', 'currency', 'trading', 'trading-api', 'coinbase', 'pro', 'prime', 'coinbasepro'],
     classifiers=[
