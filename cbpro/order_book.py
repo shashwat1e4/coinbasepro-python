@@ -286,10 +286,13 @@ if __name__ == '__main__':
                     dt.datetime.now(), self.product_id, bid_depth, bid, ask_depth, ask))
 
     order_book = OrderBookConsole()
+    i = 0
     order_book.start()
     try:
-        while True:
+        while i < 5:
             time.sleep(10)
+            i += 1
+        order_book.close()
     except KeyboardInterrupt:
         order_book.close()
 

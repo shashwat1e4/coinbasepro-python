@@ -13,8 +13,8 @@ from cbpro.cancellation_entry import CancellationEntry
 
 class OrderLogger(OrderBook):
     def __init__(self, product_id='BTC-USD', log_to=None):
-        super().__init__(product_id=product_id, log_to=log_to)
-        self.cancellations = list()
+        super(OrderLogger, self).__init__(product_id=product_id, log_to=log_to)
+        self._cancellations = list()
 
     def on_open(self):
         self._sequence = -1
@@ -29,10 +29,14 @@ class OrderLogger(OrderBook):
         super(OrderLogger, self).remove(message)
 
     def reset_cancellations(self):
-        self.cancellations = list()
+        self._cancellations = list()
 
     def add_cancel(self, cancellation_entry):
-        self.cancellations.append(cancellation_entry)
+        self._cancellations.append(cancellation_entry)
+
+    @property
+    def get_cancellations(self):
+        return self._cancellations
 
 
 if __name__ == '__main__':
@@ -75,6 +79,7 @@ if __name__ == '__main__':
                 print('{} {} bid: {:.3f} @ {:.2f}\task: {:.3f} @ {:.2f}'.format(
                     dt.datetime.now(), self.product_id, bid_depth, bid, ask_depth, ask))
 
+    global order_logger
     order_logger = OrderLoggerConsole()
     order_logger.start()
 
